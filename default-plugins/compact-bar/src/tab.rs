@@ -88,6 +88,12 @@ pub fn tab_style(
     palette: Palette,
     capabilities: PluginCapabilities,
 ) -> LinePart {
+    if tabname.is_empty() {
+        tabname = format!("{}", tab.position + 1);
+    } else {
+        tabname = format!("{}:{}", tab.position + 1, tabname);
+    }
+
     let separator = tab_separator(capabilities);
     if tab.is_sync_panes_active {
         tabname.push_str(" (Sync)");

@@ -538,12 +538,6 @@ impl Tab {
         arrow_fonts: bool,
         styled_underlines: bool,
     ) -> Self {
-        let name = if name.is_empty() {
-            format!("Tab #{}", index + 1)
-        } else {
-            name
-        };
-
         let mut connected_clients = HashSet::new();
         connected_clients.insert(client_id);
         let viewport: Viewport = display_area.into();
